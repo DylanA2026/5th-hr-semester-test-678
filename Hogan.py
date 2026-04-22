@@ -19,3 +19,11 @@
 import random
 import time
 
+class allies:
+    def __init__(self, hp, attack):
+        self.hp = hp
+        self.attack = attack
+
+Federation_Soldier = allies(100, random.randint(8,15))
+Federation_Medic = allies(45, random.randint(2,5))
+Federation_literaltank = allies(175, random.randint(3,8))
