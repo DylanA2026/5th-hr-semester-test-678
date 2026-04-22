@@ -28,4 +28,11 @@ Federation_Soldier = character(100, random.randint(8,15))
 Federation_Medic = character(45, random.randint(2,5))
 Federation_literaltank = character(175, random.randint(3,8))
 
+class enemy:
+    def __init__(self, hp, attack):
+        self.hp = hp
+        self.attack = attack
 
+MegaCorp_Soldier = character(100, random.randint(8,15))
+MegaCorp_Medic = character(45, random.randint(2,5))
+MegaCorp_literaltank = character(175, random.randint(3,8))
