@@ -24,10 +24,25 @@ class character:
         self.hp = hp
         self.attack = attack
         self.maxhp = maxhp
+
     def heal(self):
         self.hp = self.hp + random.randint(20, 30)
         if self.hp > self.maxhp:
             self.hp = self.maxhp
+
+    def fs_atk(self):
+        self.hp = self.hp - Federation_Soldier.attack
+    def fm_atk(self):
+        self.hp = self.hp - Federation_Medic.attack
+    def ft_atk(self):
+        self.hp = self.hp - Federation_literaltank.attack
+
+    def ms_atk(self):
+        self.hp = self.hp - MegaCorp_Soldier.attack
+    def mm_atk(self):
+        self.hp = self.hp - MegaCorp_Medic.attack
+    def mt_atk(self):
+        self.hp = self.hp - MegaCorp_literaltank.attack
 
 Federation_Soldier = character(100, random.randint(8,15), 100)
 Federation_Medic = character(45, random.randint(2,5), 45)
