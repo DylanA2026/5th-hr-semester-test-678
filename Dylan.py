@@ -33,17 +33,14 @@ def character_selection():
 
     if char_select == 1:
         print("You have selected the Space Soldier")
-        cont = int(input("Press 1 to continue or press 2 to change your character: "))
         char_change_prompt()
 
     elif char_select == 2:
         print("You have selected the Space Medic")
-        cont = int(input("Press 1 to continue or press 2 to change your character: "))
         char_change_prompt()
 
     elif char_select == 3:
         print("You have selected the Space Tank")
-        cont = int(input("Press 1 to continue or press 2 to change your character: "))
         char_change_prompt()
     else:
         print("Not a valid option")
