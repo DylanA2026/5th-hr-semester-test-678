@@ -20,14 +20,19 @@ import random
 import time
 
 class character:
-    def __init__(self, hp, attack):
+    def __init__(self, hp, attack, maxhp):
         self.hp = hp
         self.attack = attack
+        self.maxhp = maxhp
+    def heal(self):
+        self.hp = self.hp + random.randint(20, 30)
+        if self.hp > self.maxhp:
+            self.hp = self.maxhp
+Federation_Soldier = character(100, random.randint(8,15), 100)
+Federation_Medic = character(45, random.randint(2,5), 45)
+Federation_literaltank = character(175, random.randint(3,8), 175)
 
-Federation_Soldier = character(100, random.randint(8,15))
-Federation_Medic = character(45, random.randint(2,5))
-Federation_literaltank = character(175, random.randint(3,8))
+MegaCorp_Soldier = character(100, random.randint(8,15), 100)
+MegaCorp_Medic = character(45, random.randint(2,5), 45)
+MegaCorp_literaltank = character(175, random.randint(3,8),175)
 
-MegaCorp_Soldier = character(100, random.randint(8,15))
-MegaCorp_Medic = character(45, random.randint(2,5))
-MegaCorp_literaltank = character(175, random.randint(3,8))
