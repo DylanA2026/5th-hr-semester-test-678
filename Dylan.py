@@ -16,43 +16,45 @@
 #those ideas are implemented together and your overall contribution to the team.
 
 print("Welcome to Space Masters")
+
+def char_change_prompt():
+    cont = int(input("Press 1 to continue or press 2 to change your character: "))
+    if cont == 1:
+        gameplay()
+    elif cont == 2:
+        character_selection()
+    else:
+        print("Not a valid option")
+        char_change_prompt()
+
 def character_selection():
     print("Select a character from the Federation of Space Masters")
-    char_select = int(input("Enter 1 to select Soldier, 2 to select Medic, and 3 to select Space Tank"))
+    char_select = int(input("Enter 1 to select Soldier, 2 to select Medic, and 3 to select Space Tank: "))
 
     if char_select == 1:
         print("You have selected the Space Soldier")
-        cont = int(input("Press 1 to continue or press 2 to change your character"))
-        if cont == 1:
-            gameplay()
-        elif cont == 2:
-            character_selection()
-        else:
-            print("Not a valid option")
+        cont = int(input("Press 1 to continue or press 2 to change your character: "))
+        char_change_prompt()
 
     elif char_select == 2:
         print("You have selected the Space Medic")
-        cont = int(input("Press 1 to continue or press 2 to change your character"))
-        if cont == 1:
-            gameplay()
-        elif cont == 2:
-            character_selection()
-        else:
-            print("Not a valid option")
+        cont = int(input("Press 1 to continue or press 2 to change your character: "))
+        char_change_prompt()
 
     elif char_select == 3:
         print("You have selected the Space Tank")
-        cont = int(input("Press 1 to continue or press 2 to change your character"))
-        if cont == 1:
-            gameplay()
-        elif cont == 2:
-            character_selection()
-        else:
-            print("Not a valid option")
+        cont = int(input("Press 1 to continue or press 2 to change your character: "))
+        char_change_prompt()
+    else:
+        print("Not a valid option")
+        character_selection()
 
 
 
-#def gameplay():
+def gameplay():
+    print("Still in development")
+
+
 
 
 
