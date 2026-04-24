@@ -32,23 +32,57 @@ class character:
 
     def fs_atk(self):
         Federation_Soldier.attack = random.randint(8,15)
-        self.hp = self.hp - Federation_Soldier.attack
+        crit = random.randint(1,20)
+        if crit == 20:
+            Federation_Soldier.attack = Federation_Soldier.attack * 2
+            self.hp = self.hp - Federation_Soldier.attack
+        else:
+            self.hp = self.hp - Federation_Soldier.attack
+
     def fm_atk(self):
         Federation_Medic.attack = random.randint(2,5)
-        self.hp = self.hp - Federation_Medic.attack
+        crit = random.randint(1, 20)
+        if crit == 20:
+            Federation_Medic.attack = Federation_Medic.attack * 2
+            self.hp = self.hp - Federation_Medic.attack
+        else:
+            self.hp = self.hp - Federation_Medic.attack
+
     def ft_atk(self):
         Federation_literaltank.attack = random.randint(3,8)
-        self.hp = self.hp - Federation_literaltank.attack
+        crit = random.randint(1, 20)
+        if crit == 20:
+            Federation_literaltank.attack = Federation_literaltank.attack * 2
+            self.hp = self.hp - Federation_literaltank.attack
+        else:
+            self.hp = self.hp - Federation_literaltank.attack
 
     def ms_atk(self):
         MegaCorp_Soldier.attack = random.randint(8, 15)
-        self.hp = self.hp - MegaCorp_Soldier.attack
+        crit = random.randint(1, 20)
+        if crit == 20:
+            MegaCorp_Soldier.attack = MegaCorp_Soldier.attack * 2
+            self.hp = self.hp - MegaCorp_Soldier.attack
+        else:
+            self.hp = self.hp - MegaCorp_Soldier.attack
+
     def mm_atk(self):
         MegaCorp_Medic.attack = random.randint(2, 5)
-        self.hp = self.hp - MegaCorp_Medic.attack
+        crit = random.randint(1, 20)
+        if crit == 20:
+            MegaCorp_Medic.attack = MegaCorp_Medic.attack * 2
+            self.hp = self.hp - MegaCorp_Medic.attack
+        else:
+            self.hp = self.hp - MegaCorp_Medic.attack
+
     def mt_atk(self):
         MegaCorp_literaltank.attack = random.randint(3, 8)
-        self.hp = self.hp - MegaCorp_literaltank.attack
+        crit = random.randint(1, 20)
+        if crit == 20:
+            MegaCorp_literaltank.attack = MegaCorp_literaltank.attack * 2
+            self.hp = self.hp - MegaCorp_literaltank.attack
+        else:
+            self.hp = self.hp - MegaCorp_literaltank.attack
 
 Federation_Soldier = character(100, random.randint(8,15), 100)
 Federation_Medic = character(45, random.randint(2,5), 45)
