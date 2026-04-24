@@ -55,14 +55,36 @@ def gameplay():
         if choose_action == 1:
             choose_enemy = int(input("Enter 1 to attack MegaCorp Soldier, 2 to attack MegaCorp Medic, or 3 to attack MegaCorp Tank"))
 
+        elif choose_action == 2:
+            print("You have chosen to defend your character")
+
 
     elif char_select == 2:
-        print("You have selected the Space Medic")
-        char_change_prompt()
+        choose_action = int(input("Enter 1 to attack, 2 to defend your character, or 3 to heal a character: "))
+        if choose_action == 1:
+            choose_enemy = int(
+                input("Enter 1 to attack MegaCorp Soldier, 2 to attack MegaCorp Medic, or 3 to attack MegaCorp Tank"))
+
+        elif choose_action == 2:
+            print("You have chosen to defend your character")
+
+        elif choose_action == 3:
+            print("You have chosen to heal a character")
+        else:
+            print("Not a valid option")
+            gameplay()
+
 
     elif char_select == 3:
         print("You have selected the Space Tank")
-        char_change_prompt()
+        choose_action = int(input("Enter 1 to attack or 2 to defend your character: "))
+        if choose_action == 1:
+            choose_enemy = int(
+                input("Enter 1 to attack MegaCorp Soldier, 2 to attack MegaCorp Medic, or 3 to attack MegaCorp Tank"))
+
+        elif choose_action == 2:
+            print("You have chosen to defend your character")
+
 
 
 
