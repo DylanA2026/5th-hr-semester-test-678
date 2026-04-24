@@ -1,6 +1,7 @@
 #Name:
 #Class: 5th Hour
 #Assignment: Semester Project 2
+import time
 
 #You're all part of a new development team and the big wigs want to see what you are all capable of.
 #They want you to develop whatever you want to develop, but they want you to work together as a team
@@ -49,21 +50,34 @@ def character_selection():
 
 
 def gameplay():
-    print("Still in development")
+    #Soldier Character
     if char_select == 1:
         choose_action = int(input("Enter 1 to attack or 2 to defend your character: "))
         if choose_action == 1:
             choose_enemy = int(input("Enter 1 to attack MegaCorp Soldier, 2 to attack MegaCorp Medic, or 3 to attack MegaCorp Tank"))
+            if choose_enemy == 1:
+                fs_atk(MegaCorp_Soldier)
+            elif choose_enemy == 2:
+                fs_atk(MegaCorp_Medic)
+            elif choose_enemy == 3:
+                fs_atk(MegaCorp_Medic)
+            else:
+                print("Not a valid option")
+                gameplay()
 
         elif choose_action == 2:
             print("You have chosen to defend your character")
+            call defence  function
+            time.sleep(0.4)
+        else:
+            print("Not a valid option")
+            gameplay()
 
-
+# Medic Character
     elif char_select == 2:
         choose_action = int(input("Enter 1 to attack, 2 to defend your character, or 3 to heal a character: "))
         if choose_action == 1:
-            choose_enemy = int(
-                input("Enter 1 to attack MegaCorp Soldier, 2 to attack MegaCorp Medic, or 3 to attack MegaCorp Tank"))
+            choose_enemy = int(input("Enter 1 to attack MegaCorp Soldier, 2 to attack MegaCorp Medic, or 3 to attack MegaCorp Tank"))
 
         elif choose_action == 2:
             print("You have chosen to defend your character")
@@ -74,22 +88,38 @@ def gameplay():
             print("Not a valid option")
             gameplay()
 
-
+#Tank Character
     elif char_select == 3:
         print("You have selected the Space Tank")
         choose_action = int(input("Enter 1 to attack or 2 to defend your character: "))
         if choose_action == 1:
             choose_enemy = int(
                 input("Enter 1 to attack MegaCorp Soldier, 2 to attack MegaCorp Medic, or 3 to attack MegaCorp Tank"))
+            if choose_enemy == 1:
+                ft_atk(MegaCorp_Soldier)
+            elif choose_enemy == 2:
+                ft_atk(MegaCorp_Medic)
+            elif choose_enemy == 3:
+                ft_atk(MegaCorp_Medic)
+            else:
+                print("Not a valid option")
+                gameplay()
 
         elif choose_action == 2:
             print("You have chosen to defend your character")
+            call defence function
 
+        else:
+            print("Not a valid option")
+            gameplay()
+    else:
+        print("Character not selected, try again")
+        character_selection()
 
 
 
 def enemy():
-
+    print("Enemy attack")
 
 
 
