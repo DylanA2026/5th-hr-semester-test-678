@@ -67,7 +67,7 @@ def gameplay():
 
         elif choose_action == 2:
             print("You have chosen to defend your character")
-            call defence  function
+            #TODO: call defence function
             time.sleep(0.4)
         else:
             print("Not a valid option")
@@ -107,7 +107,7 @@ def gameplay():
 
         elif choose_action == 2:
             print("You have chosen to defend your character")
-            call defence function
+            #TODO: call defence function
 
         else:
             print("Not a valid option")
