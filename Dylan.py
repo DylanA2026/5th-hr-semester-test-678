@@ -14,7 +14,7 @@
 #nested if statements),1 variable with a user input, and 1 form of an assignment operator. You are free
 #to add whatever else you feel is necessary to complete your concept. You will be graded based on how
 #those ideas are implemented together and your overall contribution to the team.
-
+char_select = 0
 print("Welcome to Space Masters")
 
 def char_change_prompt():
@@ -29,8 +29,8 @@ def char_change_prompt():
 
 def character_selection():
     print("Select a character from the Federation of Space Masters")
+    global char_select
     char_select = int(input("Enter 1 to select Soldier, 2 to select Medic, and 3 to select Space Tank: "))
-
     if char_select == 1:
         print("You have selected the Space Soldier")
         char_change_prompt()
@@ -50,6 +50,23 @@ def character_selection():
 
 def gameplay():
     print("Still in development")
+    if char_select == 1:
+        choose_action = int(input("Enter 1 to attack or 2 to defend your character: "))
+        if choose_action == 1:
+            choose_enemy = int(input("Enter 1 to attack MegaCorp Soldier, 2 to attack MegaCorp Medic, or 3 to attack MegaCorp Tank"))
+
+
+    elif char_select == 2:
+        print("You have selected the Space Medic")
+        char_change_prompt()
+
+    elif char_select == 3:
+        print("You have selected the Space Tank")
+        char_change_prompt()
+
+
+
+def enemy():
 
 
 
