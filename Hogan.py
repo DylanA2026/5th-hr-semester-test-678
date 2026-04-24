@@ -91,7 +91,11 @@ class character:
             MegaCorp_Medic.attack = MegaCorp_Medic.attack * 2
             self.hp = self.hp - MegaCorp_Medic.attack
         else:
-            self.hp = self.hp - MegaCorp_Medic.attack
+            if self.defensebull == True:
+                print("The Megacorp Medic is defended!")
+                self.defensebull = False
+            else:
+                self.hp = self.hp - MegaCorp_Medic.attack
 
     def mt_atk(self):
         MegaCorp_literaltank.attack = random.randint(3, 8)
@@ -100,7 +104,11 @@ class character:
             MegaCorp_literaltank.attack = MegaCorp_literaltank.attack * 2
             self.hp = self.hp - MegaCorp_literaltank.attack
         else:
-            self.hp = self.hp - MegaCorp_literaltank.attack
+            if self.defensebull == True:
+                print("The Megacorp Tank is defended!")
+                self.defensebull = False
+            else:
+                self.hp = self.hp - MegaCorp_literaltank.attack
 
     def defend(self):
         defense = random.randint(1, 10)
