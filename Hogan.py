@@ -19,16 +19,18 @@
 import random
 import time
 
+
 class character:
-    def __init__(self, hp, attack, maxhp):
+    def __init__(self, hp, attack, maxhp, defensebull):
         self.hp = hp
         self.attack = attack
         self.maxhp = maxhp
-
+        self.defensebull = defensebull
     def heal(self):
         self.hp = self.hp + random.randint(20, 30)
         if self.hp > self.maxhp:
             self.hp = self.maxhp
+
 
     def fs_atk(self):
         Federation_Soldier.attack = random.randint(8,15)
@@ -37,7 +39,11 @@ class character:
             Federation_Soldier.attack = Federation_Soldier.attack * 2
             self.hp = self.hp - Federation_Soldier.attack
         else:
-            self.hp = self.hp - Federation_Soldier.attack
+            if self.defensebull == True:
+                print("The Federation Soldier is defended!")
+                self.defensebull = False
+            else:
+                self.hp = self.hp - Federation_Soldier.attack
 
     def fm_atk(self):
         Federation_Medic.attack = random.randint(2,5)
@@ -46,7 +52,11 @@ class character:
             Federation_Medic.attack = Federation_Medic.attack * 2
             self.hp = self.hp - Federation_Medic.attack
         else:
-            self.hp = self.hp - Federation_Medic.attack
+            if self.defensebull == True:
+                print("The Federation Medic is defended!")
+                self.defensebull = False
+            else:
+                self.hp = self.hp - Federation_Medic.attack
 
     def ft_atk(self):
         Federation_literaltank.attack = random.randint(3,8)
@@ -55,7 +65,11 @@ class character:
             Federation_literaltank.attack = Federation_literaltank.attack * 2
             self.hp = self.hp - Federation_literaltank.attack
         else:
-            self.hp = self.hp - Federation_literaltank.attack
+            if self.defensebull == True:
+                print("The Federation Tank is defended!")
+                self.defensebull = False
+            else:
+                self.hp = self.hp - Federation_literaltank.attack
 
     def ms_atk(self):
         MegaCorp_Soldier.attack = random.randint(8, 15)
@@ -64,7 +78,11 @@ class character:
             MegaCorp_Soldier.attack = MegaCorp_Soldier.attack * 2
             self.hp = self.hp - MegaCorp_Soldier.attack
         else:
-            self.hp = self.hp - MegaCorp_Soldier.attack
+            if self.defensebull == True:
+                print("The Megacorp Soldier is defended!")
+                self.defensebull = False
+            else:
+                self.hp = self.hp - MegaCorp_Soldier.attack
 
     def mm_atk(self):
         MegaCorp_Medic.attack = random.randint(2, 5)
@@ -84,10 +102,16 @@ class character:
         else:
             self.hp = self.hp - MegaCorp_literaltank.attack
 
-Federation_Soldier = character(100, random.randint(8,15), 100)
-Federation_Medic = character(45, random.randint(2,5), 45)
-Federation_literaltank = character(175, random.randint(3,8), 175)
+    def defend(self):
+        defense = random.randint(1, 10)
+        if defense >= 7:
+            print("Defense Failed!")
+        else:
+            self.defensebull = True
+Federation_Soldier = character(100, random.randint(8,15), 100, False)
+Federation_Medic = character(45, random.randint(2,5), 45, False)
+Federation_literaltank = character(175, random.randint(3,8), 175, False)
 
-MegaCorp_Soldier = character(100, random.randint(8,15), 100)
-MegaCorp_Medic = character(45, random.randint(2,5), 45)
-MegaCorp_literaltank = character(175, random.randint(3,8),175)
+MegaCorp_Soldier = character(100, random.randint(8,15), 100, False)
+MegaCorp_Medic = character(45, random.randint(2,5), 45, False)
+MegaCorp_literaltank = character(175, random.randint(3,8),175, False)
