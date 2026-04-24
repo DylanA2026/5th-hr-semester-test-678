@@ -31,17 +31,23 @@ class character:
             self.hp = self.maxhp
 
     def fs_atk(self):
+        Federation_Soldier.attack = random.randint(8,15)
         self.hp = self.hp - Federation_Soldier.attack
     def fm_atk(self):
+        Federation_Medic.attack = random.randint(2,5)
         self.hp = self.hp - Federation_Medic.attack
     def ft_atk(self):
+        Federation_literaltank.attack = random.randint(3,8)
         self.hp = self.hp - Federation_literaltank.attack
 
     def ms_atk(self):
+        MegaCorp_Soldier.attack = random.randint(8, 15)
         self.hp = self.hp - MegaCorp_Soldier.attack
     def mm_atk(self):
+        MegaCorp_Medic.attack = random.randint(2, 5)
         self.hp = self.hp - MegaCorp_Medic.attack
     def mt_atk(self):
+        MegaCorp_literaltank.attack = random.randint(3, 8)
         self.hp = self.hp - MegaCorp_literaltank.attack
 
 Federation_Soldier = character(100, random.randint(8,15), 100)
