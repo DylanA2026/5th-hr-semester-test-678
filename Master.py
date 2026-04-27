@@ -19,6 +19,8 @@
 import random
 import time
 
+from Hogan import choose_ally
+
 
 class character:
     def __init__(self, hp, attack, maxhp, defensebull):
@@ -38,6 +40,7 @@ class character:
         if crit == 20:
             Federation_Soldier.attack = Federation_Soldier.attack * 2
             self.hp = self.hp - Federation_Soldier.attack
+            print("Critical Attack")
         else:
             if self.defensebull == True:
                 print("The attack was blocked!")
@@ -51,6 +54,7 @@ class character:
         if crit == 20:
             Federation_Medic.attack = Federation_Medic.attack * 2
             self.hp = self.hp - Federation_Medic.attack
+            print("Critical Attack")
         else:
             if self.defensebull == True:
                 print("The attack was blocked!")
@@ -64,6 +68,7 @@ class character:
         if crit == 20:
             Federation_literaltank.attack = Federation_literaltank.attack * 2
             self.hp = self.hp - Federation_literaltank.attack
+            print("Critical Attack")
         else:
             if self.defensebull == True:
                 print("The attack was blocked!")
@@ -77,6 +82,7 @@ class character:
         if crit == 20:
             MegaCorp_Soldier.attack = MegaCorp_Soldier.attack * 2
             self.hp = self.hp - MegaCorp_Soldier.attack
+            print("Critical Attack")
         else:
             if self.defensebull == True:
                 print("The attack was blocked!")
@@ -90,6 +96,7 @@ class character:
         if crit == 20:
             MegaCorp_Medic.attack = MegaCorp_Medic.attack * 2
             self.hp = self.hp - MegaCorp_Medic.attack
+            print("Critical Attack")
         else:
             if self.defensebull == True:
                 print("The attack was blocked!")
@@ -103,6 +110,7 @@ class character:
         if crit == 20:
             MegaCorp_literaltank.attack = MegaCorp_literaltank.attack * 2
             self.hp = self.hp - MegaCorp_literaltank.attack
+            print("Critical Attack")
         else:
             if self.defensebull == True:
                 print("The attack was blocked!")
@@ -116,6 +124,7 @@ class character:
             print("Defense Failed!")
         else:
             self.defensebull = True
+            print("Defense Successful! Character will be defended on the next attack")
 Federation_Soldier = character(100, random.randint(8,15), 100, False)
 Federation_Medic = character(45, random.randint(2,5), 45, False)
 Federation_literaltank = character(175, random.randint(3,8), 175, False)
@@ -124,7 +133,7 @@ MegaCorp_Soldier = character(100, random.randint(8,15), 100, False)
 MegaCorp_Medic = character(45, random.randint(2,5), 45, False)
 MegaCorp_literaltank = character(175, random.randint(3,8),175, False)
 
-
+unit_list = [Federation_Soldier, Federation_Medic, Federation_literaltank, MegaCorp_Soldier, MegaCorp_Medic, MegaCorp_literaltank]
 char_select = 0
 print("Welcome to Space Masters")
 
@@ -209,7 +218,16 @@ def gameplay():
             Federation_Medic.defend()
         elif choose_action == 3:
             print("You have chosen to heal a character")
-            #TODO Make Heal
+            choose_enemy = int(input("Enter 1 to heal Federation Solider or 2 to heal Federation Tank"))
+            # Fed Medic attacking MC Soldier
+            if choose_enemy == 1:
+                Federation_Soldier.heal()
+                # Fed Medic attacking MC Medic
+            elif choose_enemy == 2:
+                Federation_literaltank.heal()
+            else:
+                print("Not a valid option")
+                gameplay()
 
         else:
             print("Not a valid option")
@@ -247,9 +265,14 @@ def gameplay():
         character_selection()
 
 
-
-def enemy():
-    print("Enemy attack")
+def enemyatk():
+    choose_ally = random.randint(1,3)
+    if choose_ally == 1:
+        Federation_Soldier.msAtk()
+    elif choose_ally == 2:
+        Federation_Medic.mmAtk()
+    elif choose_ally == 3:
+        Federation_literaltank.mtAtk()
 
 
 
