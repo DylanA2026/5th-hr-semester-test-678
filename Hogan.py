@@ -17,7 +17,43 @@
 
 
 import random
-import time
+
+def intro():
+    print("XXXXXXXXXXXXXXXXXXXXXXXXX")
+    print("XXXXXXXXXXXXXXXXXXXXXXXX")
+    print("XXXXXXXXXXXXXXXXXXXXXXX")
+    print("XXXXXXXXXXXXXXXXXXXXXX")
+    print("XXXXXXXXXXXXXXXXXXXXX")
+    print("XXXXXXXXXXXXXXXXXXXX")
+    print("XXXXXXXXXXXXXXXXXXX")
+    print("XXXXXXXXXXXXXXXXXX")
+    print("XXXXXXXXXXXXXXXXX")
+    print("XXXXXXXXXXXXXXXX")
+    print("XXXXXXXXXXXXXXX")
+    print("XXXXXXXXXXXXXX")
+    print("XXXXXXXXXXXXX")
+    print("XXXXXXXXXXXX")
+    print("XXXXXXXXXXX")
+    print("XXXXXXXXXX")
+    print("XXXXXXXXX")
+    print("XXXXXXXX")
+    print("XXXXXXX")
+    print("XXXXXX")
+    print("XXXXX")
+
+def randompick():
+    enemyfirst = False
+    alliesfirst = False
+    global enemyfirst
+    global alliesfirst
+    pick = random.randint(0,1)
+    if pick == 0:
+        enemyfirst = True
+    else:
+        alliesfirst = True
+
+
+
 
 
 class character:
