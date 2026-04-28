@@ -40,14 +40,14 @@ class character:
             Federation_Soldier.attack = Federation_Soldier.attack * 2
             self.hp = self.hp - Federation_Soldier.attack
             print("Critical Attack")
-            print(f"Federation Soldier has hit {self.name} for {Federation_Soldier.attack}")
+            print(f"Federation Soldier has hit {self.name} for {Federation_Soldier.attack} Damage")
         else:
             if self.defensebull == True:
                 print("The attack was blocked!")
                 self.defensebull = False
             else:
                 self.hp = self.hp - Federation_Soldier.attack
-                print(f"Federation Soldier has hit {self.name} for {Federation_Soldier.attack}")
+                print(f"Federation Soldier has hit {self.name} for {Federation_Soldier.attack} Damage")
 
     def fmAtk(self):
         Federation_Medic.attack = random.randint(2,5)
@@ -56,14 +56,14 @@ class character:
             Federation_Medic.attack = Federation_Medic.attack * 2
             self.hp = self.hp - Federation_Medic.attack
             print("Critical Attack")
-            print(f"Federation Medic has hit {self.name} for {Federation_Medic.attack}")
+            print(f"Federation Medic has hit {self.name} for {Federation_Medic.attack} Damage")
         else:
             if self.defensebull == True:
                 print("The attack was blocked!")
                 self.defensebull = False
             else:
                 self.hp = self.hp - Federation_Medic.attack
-                print(f"Federation Medic has hit {self.name} for {Federation_Medic.attack}")
+                print(f"Federation Medic has hit {self.name} for {Federation_Medic.attack} Damage")
 
     def ftAtk(self):
         Federation_literaltank.attack = random.randint(3,8)
@@ -72,14 +72,14 @@ class character:
             Federation_literaltank.attack = Federation_literaltank.attack * 2
             self.hp = self.hp - Federation_literaltank.attack
             print("Critical Attack")
-            print(f"Federation Tank has hit {self.name} for {Federation_literaltank.attack}")
+            print(f"Federation Tank has hit {self.name} for {Federation_literaltank.attack} Damage")
         else:
             if self.defensebull == True:
                 print("The attack was blocked!")
                 self.defensebull = False
             else:
                 self.hp = self.hp - Federation_literaltank.attack
-                print(f"Federation Tank has hit {self.name} for {Federation_literaltank.attack}")
+                print(f"Federation Tank has hit {self.name} for {Federation_literaltank.attack} Damage")
 
     def msAtk(self):
         MegaCorp_Soldier.attack = random.randint(8, 15)
@@ -88,14 +88,14 @@ class character:
             MegaCorp_Soldier.attack = MegaCorp_Soldier.attack * 2
             self.hp = self.hp - MegaCorp_Soldier.attack
             print("Critical Attack")
-            print(f"MegaCorp Soldier has hit {self.name} for {MegaCorp_Soldier.attack}")
+            print(f"MegaCorp Soldier has hit {self.name} for {MegaCorp_Soldier.attack} Damage")
         else:
             if self.defensebull == True:
                 print("The attack was blocked!")
                 self.defensebull = False
             else:
                 self.hp = self.hp - MegaCorp_Soldier.attack
-                print(f"MegaCorp Soldier has hit {self.name} for {MegaCorp_Soldier.attack}")
+                print(f"MegaCorp Soldier has hit {self.name} for {MegaCorp_Soldier.attack} Damage")
 
     def mmAtk(self):
         MegaCorp_Medic.attack = random.randint(2, 5)
@@ -104,14 +104,14 @@ class character:
             MegaCorp_Medic.attack = MegaCorp_Medic.attack * 2
             self.hp = self.hp - MegaCorp_Medic.attack
             print("Critical Attack")
-            print(f"MegaCorp Medic has hit {self.name} for {MegaCorp_Medic.attack}")
+            print(f"MegaCorp Medic has hit {self.name} for {MegaCorp_Medic.attack} Damage")
         else:
             if self.defensebull == True:
                 print("The attack was blocked!")
                 self.defensebull = False
             else:
                 self.hp = self.hp - MegaCorp_Medic.attack
-                print(f"MegaCorp Medic has hit {self.name} for {MegaCorp_Medic.attack}")
+                print(f"MegaCorp Medic has hit {self.name} for {MegaCorp_Medic.attack} Damage")
 
     def mtAtk(self):
         MegaCorp_literaltank.attack = random.randint(3, 8)
@@ -120,14 +120,14 @@ class character:
             MegaCorp_literaltank.attack = MegaCorp_literaltank.attack * 2
             self.hp = self.hp - MegaCorp_literaltank.attack
             print("Critical Attack")
-            print(f"MegaCorp Tank has hit {self.name} for {MegaCorp_literaltank.attack}")
+            print(f"MegaCorp Tank has hit {self.name} for {MegaCorp_literaltank.attack} Damage")
         else:
             if self.defensebull == True:
                 print("The attack was blocked!")
                 self.defensebull = False
             else:
                 self.hp = self.hp - MegaCorp_literaltank.attack
-                print(f"MegaCorp Tank has hit {self.name} for {MegaCorp_literaltank.attack}")
+                print(f"MegaCorp Tank has hit {self.name} for {MegaCorp_literaltank.attack} Damage")
 
     def defend(self):
         defense = random.randint(1, 10)
