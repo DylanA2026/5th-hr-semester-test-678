@@ -183,3 +183,24 @@ MegaCorp_literaltank = character("Megacorp Tank",175, random.randint(3,8),175, F
 
 
 unit_list = [Federation_Soldier, Federation_Medic, Federation_literaltank, MegaCorp_Soldier, MegaCorp_Medic, MegaCorp_literaltank]
+
+character_selection()
+while Federation_Medic.hp > 0 or Federation_literaltank.hp > 0 or Federation_Soldier.hp > 0:
+    if MegaCorp_Soldier.hp > 0 or MegaCorp_Medic.hp > 0 or MegaCorp_literaltank.hp > 0:
+        character_selection()
+    else:
+        input("You have beat the enemy team! Play again? (Y/N)")
+        if input == "Y" or input == "y":
+            character_selection()
+        elif input == "N" or input == "n":
+            print("Thank you for playing, and congrats on winning!")
+            exit()
+else:
+    Federation_Medic.hp <= 0 and Federation_literaltank.hp <= 0 and Federation_Soldier.hp <= 0
+    input("Your entire team is dead! Play again? (Y/N)")
+    if input == "Y" or input == "y":
+        character_selection()
+    elif input == "N" or input == "n":
+        print("Thank you for playing!")
+        exit()
+
