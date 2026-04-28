@@ -45,6 +45,7 @@ def intro():
     print("XX")
     print("X")
     print("XX")
+    print("XXX")
     print("XXXX")
     print("XXXXX")
     print("XXXXXX")
@@ -57,7 +58,6 @@ def intro():
     print("XXXXXXXXXXXXX")
     print("XXXXXXXXXXXXXX")
     print("XXXXXXXXXXXXXXX")
-    print("XXXXXXXXXXXXXXXX")
 
 def randompick():
     global enemyfirst
@@ -83,7 +83,8 @@ def enemyatk():
         Federation_literaltank.mtAtk()
 
 class character:
-    def __init__(self, hp, attack, maxhp, defensebull):
+    def __init__(self, name, hp, attack, maxhp, defensebull):
+        self.name = name
         self.hp = hp
         self.attack = attack
         self.maxhp = maxhp
@@ -172,13 +173,13 @@ class character:
             defensebull = False
         else:
             self.defensebull = True
-Federation_Soldier = character(100, random.randint(8,15), 100, False)
-Federation_Medic = character(45, random.randint(2,5), 45, False)
-Federation_literaltank = character(175, random.randint(3,8), 175, False)
+Federation_Soldier = character("Federation Soldier", 100, random.randint(8,15), 100, False)
+Federation_Medic = character("Federation Medic",45, random.randint(2,5), 45, False)
+Federation_literaltank = character("Federation Tank",175, random.randint(3,8), 175, False)
 
-MegaCorp_Soldier = character(100, random.randint(8,15), 100, False)
-MegaCorp_Medic = character(45, random.randint(2,5), 45, False)
-MegaCorp_literaltank = character(175, random.randint(3,8),175, False)
+MegaCorp_Soldier = character("Megacorp Soldier",100, random.randint(8,15), 100, False)
+MegaCorp_Medic = character("Megacorp Medic",45, random.randint(2,5), 45, False)
+MegaCorp_literaltank = character("Megacorp Tank",175, random.randint(3,8),175, False)
 
 
 unit_list = [Federation_Soldier, Federation_Medic, Federation_literaltank, MegaCorp_Soldier, MegaCorp_Medic, MegaCorp_literaltank]
