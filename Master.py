@@ -27,6 +27,7 @@ class character:
         self.attack = attack
         self.maxhp = maxhp
         self.defensebull = defensebull
+
     def heal(self):
         self.hp = self.hp + random.randint(20, 30)
         if self.hp > self.maxhp:
@@ -277,13 +278,36 @@ def gameplay():
 
 
 def enemyatk():
-    choose_ally = random.randint(1,3)
-    if choose_ally == 1:
-        Federation_Soldier.msAtk()
-    elif choose_ally == 2:
-        Federation_Medic.mmAtk()
-    elif choose_ally == 3:
-        Federation_literaltank.mtAtk()
+    enemy = random.randint(1,3)
+    ally = random.randint(1, 3)
+    action = random.randint(1, 3)
+    if enemy == 1:
+        if action == 1:
+            if ally == 1:
+                Federation_Soldier.msAtk()
+            elif ally == 2:
+                Federation_Medic.msAtk()
+            elif ally == 3:
+                Federation_literaltank.msAtk()
+        elif action == 2:
+            if ally == 1:
+                print("You have chosen to defend your character")
+
+    elif enemy == 2:
+        if ally == 1:
+            Federation_Soldier.mmAtk()
+        elif ally == 2:
+            Federation_Medic.mmAtk()
+        elif ally == 3:
+            Federation_literaltank.mmAtk()
+
+    elif enemy == 3:
+        if ally == 1:
+            Federation_Soldier.mtAtk()
+        elif ally == 2:
+            Federation_Medic.mtAtk()
+        elif ally == 3:
+            Federation_literaltank.mtAtk()
 
 
 
