@@ -60,10 +60,10 @@ def intro():
     print("XXXXXXXXXXXXXXXX")
 
 def randompick():
-    enemyfirst = False
-    alliesfirst = False
     global enemyfirst
     global alliesfirst
+    enemyfirst = False
+    alliesfirst = False
     pick = random.randint(0,1)
     if pick == 0:
         enemyfirst = True
