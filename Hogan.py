@@ -58,6 +58,17 @@ def intro():
     print("XXXXXXXXXXXXX")
     print("XXXXXXXXXXXXXX")
     print("XXXXXXXXXXXXXXX")
+    print("XXXXXXXXXXXXXXXX")
+    print("XXXXXXXXXXXXXXXXX")
+    print("XXXXXXXXXXXXXXXXXX")
+    print("XXXXXXXXXXXXXXXXXXX")
+    print("XXXXXXXXXXXXXXXXXXXX")
+    print("XXXXXXXXXXXXXXXXXXXXX")
+    print("XXXXXXXXXXXXXXXXXXXXXX")
+    print("XXXXXXXXXXXXXXXXXXXXXXX")
+    print("XXXXXXXXXXXXXXXXXXXXXXXX")
+    print("XXXXXXXXXXXXXXXXXXXXXXXXX")
+
 
 def randompick():
     global enemyfirst
