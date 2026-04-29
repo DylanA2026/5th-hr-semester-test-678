@@ -191,6 +191,13 @@ while Federation_Medic.hp > 0 or Federation_literaltank.hp > 0 or Federation_Sol
     else:
         input("You have beat the enemy team! Play again? (Y/N)")
         if input == "Y" or input == "y":
+            print("List of Character HP:")
+            print(f"Federation Medic: {Federation_Medic.hp}")
+            print(f"Federation Soldier: {Federation_Soldier.hp}")
+            print(f"Federation Tank: {Federation_literaltank.hp}")
+            print(f"Megacorp Medic: {MegaCorp_Medic.hp}")
+            print(f"Megacorp Soldier: {MegaCorp_Soldier.hp}")
+            print(f"Megacorp Tank: {MegaCorp_literaltank.hp}")
             character_selection()
         elif input == "N" or input == "n":
             print("Thank you for playing, and congrats on winning!")
@@ -199,6 +206,13 @@ else:
     Federation_Medic.hp <= 0 and Federation_literaltank.hp <= 0 and Federation_Soldier.hp <= 0
     input("Your entire team is dead! Play again? (Y/N)")
     if input == "Y" or input == "y":
+        print("List of Character HP:")
+        print(f"Federation Medic: {Federation_Medic.hp}")
+        print(f"Federation Soldier: {Federation_Soldier.hp}")
+        print(f"Federation Tank: {Federation_literaltank.hp}")
+        print(f"Megacorp Medic: {MegaCorp_Medic.hp}")
+        print(f"Megacorp Soldier: {MegaCorp_Soldier.hp}")
+        print(f"Megacorp Tank: {MegaCorp_literaltank.hp}")
         character_selection()
     elif input == "N" or input == "n":
         print("Thank you for playing!")
