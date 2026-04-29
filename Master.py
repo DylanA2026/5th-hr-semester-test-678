@@ -32,6 +32,7 @@ class character:
         self.hp = self.hp + random.randint(20, 30)
         if self.hp > self.maxhp:
             self.hp = self.maxhp
+            print(f"{self.name} has been healed to {self.hp} hp.")
 
 
     def fsAtk(self):
@@ -42,13 +43,16 @@ class character:
             self.hp = self.hp - Federation_Soldier.attack
             print("Critical Attack")
             print(f"Federation Soldier has hit {self.name} for {Federation_Soldier.attack} Damage")
+            enemyatk()
         else:
             if self.defensebull == True:
                 print("The attack was blocked!")
                 self.defensebull = False
+                enemyatk()
             else:
                 self.hp = self.hp - Federation_Soldier.attack
                 print(f"Federation Soldier has hit {self.name} for {Federation_Soldier.attack} Damage")
+                enemyatk()
 
     def fmAtk(self):
         Federation_Medic.attack = random.randint(2,5)
@@ -58,13 +62,16 @@ class character:
             self.hp = self.hp - Federation_Medic.attack
             print("Critical Attack")
             print(f"Federation Medic has hit {self.name} for {Federation_Medic.attack} Damage")
+            enemyatk()
         else:
             if self.defensebull == True:
                 print("The attack was blocked!")
                 self.defensebull = False
+                enemyatk()
             else:
                 self.hp = self.hp - Federation_Medic.attack
                 print(f"Federation Medic has hit {self.name} for {Federation_Medic.attack} Damage")
+                enemyatk()
 
     def ftAtk(self):
         Federation_literaltank.attack = random.randint(3,8)
@@ -74,13 +81,16 @@ class character:
             self.hp = self.hp - Federation_literaltank.attack
             print("Critical Attack")
             print(f"Federation Tank has hit {self.name} for {Federation_literaltank.attack} Damage")
+            enemyatk()
         else:
             if self.defensebull == True:
                 print("The attack was blocked!")
                 self.defensebull = False
+                enemyatk()
             else:
                 self.hp = self.hp - Federation_literaltank.attack
                 print(f"Federation Tank has hit {self.name} for {Federation_literaltank.attack} Damage")
+                enemyatk()
 
     def msAtk(self):
         MegaCorp_Soldier.attack = random.randint(8, 15)
@@ -90,13 +100,16 @@ class character:
             self.hp = self.hp - MegaCorp_Soldier.attack
             print("Critical Attack")
             print(f"MegaCorp Soldier has hit {self.name} for {MegaCorp_Soldier.attack} Damage")
+            start_game()
         else:
             if self.defensebull == True:
                 print("The attack was blocked!")
                 self.defensebull = False
+                start_game()
             else:
                 self.hp = self.hp - MegaCorp_Soldier.attack
                 print(f"MegaCorp Soldier has hit {self.name} for {MegaCorp_Soldier.attack} Damage")
+                start_game()
 
     def mmAtk(self):
         MegaCorp_Medic.attack = random.randint(2, 5)
@@ -106,29 +119,36 @@ class character:
             self.hp = self.hp - MegaCorp_Medic.attack
             print("Critical Attack")
             print(f"MegaCorp Medic has hit {self.name} for {MegaCorp_Medic.attack} Damage")
+            start_game()
         else:
             if self.defensebull == True:
                 print("The attack was blocked!")
                 self.defensebull = False
+                start_game()
             else:
                 self.hp = self.hp - MegaCorp_Medic.attack
                 print(f"MegaCorp Medic has hit {self.name} for {MegaCorp_Medic.attack} Damage")
+                start_game()
 
     def mtAtk(self):
         MegaCorp_literaltank.attack = random.randint(3, 8)
         crit = random.randint(1, 20)
+
         if crit == 20:
             MegaCorp_literaltank.attack = MegaCorp_literaltank.attack * 2
             self.hp = self.hp - MegaCorp_literaltank.attack
             print("Critical Attack")
             print(f"MegaCorp Tank has hit {self.name} for {MegaCorp_literaltank.attack} Damage")
+            start_game()
         else:
             if self.defensebull == True:
                 print("The attack was blocked!")
                 self.defensebull = False
+                start_game()
             else:
                 self.hp = self.hp - MegaCorp_literaltank.attack
                 print(f"MegaCorp Tank has hit {self.name} for {MegaCorp_literaltank.attack} Damage")
+                start_game()
 
     def defend(self):
         defense = random.randint(1, 10)
@@ -137,17 +157,6 @@ class character:
         else:
             self.defensebull = True
             print("Defense Successful! Character will be defended on the next attack")
-Federation_Soldier = character("Federation Soldier", 100, random.randint(8,15), 100, False)
-Federation_Medic = character("Federation Medic",45, random.randint(2,5), 45, False)
-Federation_literaltank = character("Federation Tank",175, random.randint(3,8), 175, False)
-
-MegaCorp_Soldier = character("Megacorp Soldier",100, random.randint(8,15), 100, False)
-MegaCorp_Medic = character("Megacorp Medic",45, random.randint(2,5), 45, False)
-MegaCorp_literaltank = character("Megacorp Tank",175, random.randint(3,8),175, False)
-
-unit_list = [Federation_Soldier, Federation_Medic, Federation_literaltank, MegaCorp_Soldier, MegaCorp_Medic, MegaCorp_literaltank]
-char_select = 0
-print("Welcome to Space Masters")
 
 def char_change_prompt():
     cont = int(input("Press 1 to continue or press 2 to change your character: "))
@@ -203,6 +212,7 @@ def gameplay():
             print("You have chosen to defend your character")
             Federation_Soldier.defend()
             time.sleep(0.4)
+            enemyatk()
         else:
             print("Not a valid option")
             gameplay()
@@ -228,15 +238,18 @@ def gameplay():
         elif choose_action == 2:
             print("You have chosen to defend your character")
             Federation_Medic.defend()
+            enemyatk()
         elif choose_action == 3:
             print("You have chosen to heal a character")
             choose_enemy = int(input("Enter 1 to heal Federation Solider or 2 to repair Federation Tank"))
             # Fed Medic attacking MC Soldier
             if choose_enemy == 1:
                 Federation_Soldier.heal()
+                enemyatk()
                 # Fed Medic attacking MC Medic
             elif choose_enemy == 2:
                 Federation_literaltank.heal()
+                enemyatk()
             else:
                 print("Not a valid option")
                 gameplay()
@@ -268,6 +281,7 @@ def gameplay():
         elif choose_action == 2:
             print("You have chosen to defend your character")
             Federation_literaltank.defend()
+            enemyatk()
 
         else:
             print("Not a valid option")
@@ -281,35 +295,122 @@ def enemyatk():
     enemy = random.randint(1,3)
     ally = random.randint(1, 3)
     action = random.randint(1, 3)
-    if enemy == 1:
-        if action == 1:
-            if ally == 1:
-                Federation_Soldier.msAtk()
-            elif ally == 2:
-                Federation_Medic.msAtk()
-            elif ally == 3:
-                Federation_literaltank.msAtk()
-        elif action == 2:
-            if ally == 1:
-                print("You have chosen to defend your character")
+    while action == 1 or action == 2:
+        if enemy == 1:
+            if action == 1:
+                if ally == 1:
+                    Federation_Soldier.msAtk()
+                elif ally == 2:
+                    Federation_Medic.msAtk()
+                elif ally == 3:
+                    Federation_literaltank.msAtk()
+            elif action == 2:
+                    print("enemy has chosen to defend their character")
+                    MegaCorp_Soldier.defend()
 
-    elif enemy == 2:
-        if ally == 1:
-            Federation_Soldier.mmAtk()
-        elif ally == 2:
-            Federation_Medic.mmAtk()
-        elif ally == 3:
-            Federation_literaltank.mmAtk()
+        elif enemy == 2:
+            if action == 1:
+                if ally == 1:
+                    Federation_Soldier.mmAtk()
+                elif ally == 2:
+                    Federation_Medic.mmAtk()
+                elif ally == 3:
+                    Federation_literaltank.mmAtk()
+            elif action == 2:
+                print("enemy has chosen to defend their character")
+                MegaCorp_Medic.defend()
 
-    elif enemy == 3:
-        if ally == 1:
-            Federation_Soldier.mtAtk()
-        elif ally == 2:
-            Federation_Medic.mtAtk()
-        elif ally == 3:
-            Federation_literaltank.mtAtk()
+        elif enemy == 3:
+            if action == 1:
+                if ally == 1:
+                    Federation_Soldier.mtAtk()
+                elif ally == 2:
+                    Federation_Medic.mtAtk()
+                elif ally == 3:
+                    Federation_literaltank.mtAtk()
+            elif action == 2:
+                print("enemy has chosen to defend their character")
+                MegaCorp_literaltank.defend()
+    else:
+        if action == 3:
+            enemy_heal = random.randint(1,3)
+            if enemy_heal == 1:
+                MegaCorp_Soldier.heal()
+                start_game()
+            elif enemy_heal == 2:
+                MegaCorp_Medic.heal()
+                start_game()
+            else:
+                MegaCorp_literaltank.heal()
+                start_game()
 
 
 
 
-character_selection()
+
+
+def start_game():
+    while Federation_Medic.hp > 0 or Federation_literaltank.hp > 0 or Federation_Soldier.hp > 0:
+        if MegaCorp_Soldier.hp > 0 or MegaCorp_Medic.hp > 0 or MegaCorp_literaltank.hp > 0:
+            character_selection()
+            print("List of Character HP:")
+            print(f"Federation Medic: {Federation_Medic.hp}")
+            print(f"Federation Soldier: {Federation_Soldier.hp}")
+            print(f"Federation Tank: {Federation_literaltank.hp}")
+            print(f"Megacorp Medic: {MegaCorp_Medic.hp}")
+            print(f"Megacorp Soldier: {MegaCorp_Soldier.hp}")
+            print(f"Megacorp Tank: {MegaCorp_literaltank.hp}")
+        else:
+
+            playAgain = input("You have beat the enemy team! Play again? (Y/N)")
+
+            if playAgain == "Y" or playAgain == "y":
+                print("List of Character HP:")
+                print(f"Federation Medic: {Federation_Medic.hp}")
+                print(f"Federation Soldier: {Federation_Soldier.hp}")
+                print(f"Federation Tank: {Federation_literaltank.hp}")
+                print(f"Megacorp Medic: {MegaCorp_Medic.hp}")
+                print(f"Megacorp Soldier: {MegaCorp_Soldier.hp}")
+                print(f"Megacorp Tank: {MegaCorp_literaltank.hp}")
+                character_selection()
+            elif playAgain == "N" or playAgain == "n":
+                print("Thank you for playing, and congrats on winning!")
+                exit()
+            else:
+                print("Not a valid option")
+    else:
+        if Federation_Medic.hp <= 0 and Federation_literaltank.hp <= 0 and Federation_Soldier.hp <= 0:
+
+            playAgain = input("You have lost to the enemy team! Play again? (Y/N)")
+
+            if playAgain == "Y" or playAgain == "y":
+                print("List of Character HP:")
+                print(f"Federation Medic: {Federation_Medic.hp}")
+                print(f"Federation Soldier: {Federation_Soldier.hp}")
+                print(f"Federation Tank: {Federation_literaltank.hp}")
+                print(f"Megacorp Medic: {MegaCorp_Medic.hp}")
+                print(f"Megacorp Soldier: {MegaCorp_Soldier.hp}")
+                print(f"Megacorp Tank: {MegaCorp_literaltank.hp}")
+                character_selection()
+            elif playAgain == "N" or playAgain == "n":
+                print("Thank you for playing!")
+                exit()
+            else:
+                print("Not a valid option")
+        else:
+            print("Not a valid option")
+
+Federation_Soldier = character("Federation Soldier", 100, random.randint(8,15), 100, False)
+Federation_Medic = character("Federation Medic",45, random.randint(2,5), 45, False)
+Federation_literaltank = character("Federation Tank",175, random.randint(3,8), 175, False)
+
+MegaCorp_Soldier = character("Megacorp Soldier",100, random.randint(8,15), 100, False)
+MegaCorp_Medic = character("Megacorp Medic",45, random.randint(2,5), 45, False)
+MegaCorp_literaltank = character("Megacorp Tank",175, random.randint(3,8),175, False)
+
+unit_list = [Federation_Soldier, Federation_Medic, Federation_literaltank, MegaCorp_Soldier, MegaCorp_Medic, MegaCorp_literaltank]
+char_select = 0
+global playAgain
+print("Welcome to Space Masters")
+
+start_game()
