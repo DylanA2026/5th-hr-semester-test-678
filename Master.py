@@ -28,10 +28,23 @@ class character:
         self.maxhp = maxhp
         self.defensebull = defensebull
 
-    def heal(self):
+    def healfriendly(self):
         self.hp = self.hp + random.randint(20, 30)
-        if self.hp > self.maxhp:
-            self.hp = self.maxhp
+        if self.hp <= 0:
+            print("You cannot heal a dead player!")
+            gameplay()
+        else:
+            if self.hp > self.maxhp:
+                self.hp = self.maxhp
+            print(f"{self.name} has been healed to {self.hp} hp.")
+            time.sleep(0.6)
+    def healenemy(self):
+        self.hp = self.hp + random.randint(20, 30)
+        if self.hp <= 0:
+            enemyatk()
+        else:
+            if self.hp > self.maxhp:
+                self.hp = self.maxhp
             print(f"{self.name} has been healed to {self.hp} hp.")
             time.sleep(0.6)
 
@@ -281,11 +294,11 @@ def gameplay():
             choose_enemy = int(input("Enter 1 to heal Federation Solider or 2 to repair Federation Tank"))
             # Fed Medic attacking MC Soldier
             if choose_enemy == 1:
-                Federation_Soldier.heal()
+                Federation_Soldier.healfriendly()
                 enemyatk()
                 # Fed Medic attacking MC Medic
             elif choose_enemy == 2:
-                Federation_literaltank.heal()
+                Federation_literaltank.healfriendly()
                 enemyatk()
             else:
                 print("Not a valid option")
@@ -377,15 +390,12 @@ def enemyatk():
                 start_game()
     else:
         if action == 3:
-            enemy_heal = random.randint(1,3)
+            enemy_heal = random.randint(1,2)
             if enemy_heal == 1:
-                MegaCorp_Soldier.heal()
-                start_game()
-            elif enemy_heal == 2:
-                MegaCorp_Medic.heal()
+                MegaCorp_Soldier.healenemy()
                 start_game()
             else:
-                MegaCorp_literaltank.heal()
+                MegaCorp_literaltank.healenemy()
                 start_game()
 
 
