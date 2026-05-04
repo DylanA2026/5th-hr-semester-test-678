@@ -340,7 +340,10 @@ else:
             elif MegaCorp_Medic.hp <= 0:
                 enemy_heal = random.randint(1, 3)
             elif MegaCorp_literaltank.hp <= 0:
-            enemy_heal = random.randint(1,2)
+                enemy_heal = random.randint(1,2)
+            else:
+                enemy_heal = random.randint(1, 3)
+
             if enemy_heal == 1:
                 MegaCorp_Soldier.heal()
                 start_game()
