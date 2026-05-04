@@ -329,3 +329,24 @@ else:
         print("Thank you for playing!")
         exit()
 
+
+
+
+
+
+        if action == 3:
+            if MegaCorp_Soldier.hp <= 0:
+                enemy_heal = random.randint(2, 3)
+            elif MegaCorp_Medic.hp <= 0:
+                enemy_heal = random.randint(1, 3)
+            elif MegaCorp_literaltank.hp <= 0:
+            enemy_heal = random.randint(1,2)
+            if enemy_heal == 1:
+                MegaCorp_Soldier.heal()
+                start_game()
+            elif enemy_heal == 2:
+                MegaCorp_Medic.heal()
+                start_game()
+            else:
+                MegaCorp_literaltank.heal()
+                start_game()
