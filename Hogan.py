@@ -284,7 +284,37 @@ Federation_Space_Destroyer = character("Federation Space Destroyer",350, random.
 The_Star_of_Death = character("The Star of Death",500, random.randint(50,50), 500, False)
 
 unit_list = [Federation_Soldier, Federation_Medic, Federation_literaltank, MegaCorp_Soldier, MegaCorp_Medic, MegaCorp_literaltank]
-bossunitlist = [Federation_Artillery_Unit, Federation_Combat_Medic, Federation_Space_Destroyer, The_Star_of_Death]
+bossunitlist = [Federation_Artillery_Unit, Federation_Combat_Medic, Federation_Space_Destroyer]
+
+def boss_char_change_prompt():
+    cont = int(input("Press 1 to continue or press 2 to change your character: "))
+    if cont == 1:
+        gameplay()
+    elif cont == 2:
+        boss_character_selection()
+    else:
+        print("Not a valid option")
+        boss_char_change_prompt()
+
+def boss_character_selection():
+    print("Select an upgraded character from the Federation of Space Masters")
+    global char_select
+    print("1. Soldier\n2. Medic\n3. Space Tank")
+    char_select = int(input("Enter choice: (1-3) "))
+    if char_select == 1:
+        print("You have selected the Artillery unit")
+        boss_char_change_prompt()
+
+    elif char_select == 2:
+        print("You have selected the Combat Medic")
+        boss_char_change_prompt()
+
+    elif char_select == 3:
+        print("You have selected the Space Destroyer")
+        boss_char_change_prompt()
+    else:
+        print("Not a valid option")
+        boss_character_selection()
 
 character_selection()
 while Federation_Medic.hp > 0 or Federation_literaltank.hp > 0 or Federation_Soldier.hp > 0:
@@ -313,6 +343,8 @@ while Federation_Medic.hp > 0 or Federation_literaltank.hp > 0 or Federation_Sol
             exit()
         elif input == "3":
             print("Your characters have been upgraded!")
+            print(f"Your new Characters:{bossunitlist}")
+            boss_character_selection()
 else:
     Federation_Medic.hp <= 0 and Federation_literaltank.hp <= 0 and Federation_Soldier.hp <= 0
     input("Your entire team is dead! Play again? (Y/N)")
