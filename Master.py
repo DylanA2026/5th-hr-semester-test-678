@@ -39,7 +39,7 @@ class character:
             print(f"{self.name} has been healed to {self.hp} hp.")
             time.sleep(0.6)
     def healenemy(self):
-        self.hp = self.hp + random.randint(20, 30)
+        self.hp = self.hp + random.randint(10, 25)
         if self.hp <= 0:
             enemyatk()
         else:
@@ -344,17 +344,17 @@ def gameplay():
 def enemyatk():
     enemy = random.randint(1,3)
     ally = random.randint(1, 3)
-    action = random.randint(1, 3)
-    while action == 1 or action == 2:
+    action = random.randint(1, 4)
+    while action == 1 or action == 2 or action == 3:
         if enemy == 1:
-            if action == 1:
+            if action == 1 or action == 2:
                 if ally == 1:
                     Federation_Soldier.msAtk()
                 elif ally == 2:
                     Federation_Medic.msAtk()
                 elif ally == 3:
                     Federation_literaltank.msAtk()
-            elif action == 2:
+            elif action == 3:
                 print("enemy has chosen to defend their character")
                 MegaCorp_Soldier.defend()
                 time.sleep(0.6)
@@ -362,34 +362,34 @@ def enemyatk():
 
 
         elif enemy == 2:
-            if action == 1:
+            if action == 1 or action == 2:
                 if ally == 1:
                     Federation_Soldier.mmAtk()
                 elif ally == 2:
                     Federation_Medic.mmAtk()
                 elif ally == 3:
                     Federation_literaltank.mmAtk()
-            elif action == 2:
+            elif action == 3:
                 print("enemy has chosen to defend their character")
                 MegaCorp_Medic.defend()
                 time.sleep(0.6)
                 start_game()
 
         elif enemy == 3:
-            if action == 1:
+            if action == 1 or action == 2:
                 if ally == 1:
                     Federation_Soldier.mtAtk()
                 elif ally == 2:
                     Federation_Medic.mtAtk()
                 elif ally == 3:
                     Federation_literaltank.mtAtk()
-            elif action == 2:
+            elif action == 3:
                 print("enemy has chosen to defend their character")
                 MegaCorp_literaltank.defend()
                 time.sleep(0.6)
                 start_game()
     else:
-        if action == 3:
+        if action == 4:
             enemy_heal = random.randint(1,2)
             if enemy_heal == 1:
                 MegaCorp_Soldier.healenemy()
