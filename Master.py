@@ -50,6 +50,11 @@ class character:
 
 
     def fsAtk(self):
+        if self.hp <= 0:
+            print("Player is already dead! Attack another character!")
+            gameplay()
+
+
         Federation_Soldier.attack = random.randint(8,15)
         crit = random.randint(1,20)
         if crit == 20:
@@ -74,6 +79,9 @@ class character:
                 enemyatk()
 
     def fmAtk(self):
+        if self.hp <= 0:
+            print("Player is already dead! Attack another character!")
+            gameplay()
         Federation_Medic.attack = random.randint(2,5)
         crit = random.randint(1, 20)
         if crit == 20:
@@ -98,6 +106,9 @@ class character:
                 enemyatk()
 
     def ftAtk(self):
+        if self.hp <= 0:
+            print("Player is already dead! Attack another character!")
+            gameplay()
         Federation_literaltank.attack = random.randint(3,8)
         crit = random.randint(1, 20)
         if crit == 20:
@@ -122,6 +133,13 @@ class character:
                 enemyatk()
 
     def msAtk(self):
+        if self.hp <= 0 or MegaCorp_Soldier.hp <= 0:
+            if self.hp <= 0:
+                print("Player is already dead! Attack another character!")
+                enemyatk()
+            else:
+                print("MegaCorp Soldier is dead! They cannot attack")
+                enemyatk()
         MegaCorp_Soldier.attack = random.randint(8, 15)
         crit = random.randint(1, 20)
         if crit == 20:
@@ -146,6 +164,13 @@ class character:
                 start_game()
 
     def mmAtk(self):
+        if self.hp <= 0 or MegaCorp_Medic.hp <= 0:
+            if self.hp <= 0:
+                print("Player is already dead! Attack another character!")
+                enemyatk()
+            else:
+                print("MegaCorp Medic is Dead! They cannot attack")
+                enemyatk()
         MegaCorp_Medic.attack = random.randint(2, 5)
         crit = random.randint(1, 20)
         if crit == 20:
@@ -170,6 +195,13 @@ class character:
                 start_game()
 
     def mtAtk(self):
+        if self.hp <= 0 or MegaCorp_literaltank.hp <= 0:
+            if self.hp <= 0:
+                print("Player is already dead! Attack another character!")
+                enemyatk()
+            else:
+                print("MegaCorp Tank is disabled! They cannot attack")
+                enemyatk()
         MegaCorp_literaltank.attack = random.randint(3, 8)
         crit = random.randint(1, 20)
 
@@ -220,14 +252,23 @@ def character_selection():
     print("1. Soldier\n2. Medic\n3. Space Tank")
     char_select = int(input("Enter choice: (1-3) "))
     if char_select == 1:
+        if Federation_Soldier.hp <= 0:
+            print("This character has no hp remaining.! \n Select a new character:")
+            character_selection()
         print("You have selected the Space Soldier")
         char_change_prompt()
 
     elif char_select == 2:
+        if Federation_Medic.hp <= 0:
+            print("This character has no hp remaining.! \n Select a new character:")
+            character_selection()
         print("You have selected the Space Medic")
         char_change_prompt()
 
     elif char_select == 3:
+        if Federation_literaltank.hp <= 0:
+            print("This character has no hp remaining.! \n Select a new character:")
+            character_selection()
         print("You have selected the Space Tank")
         char_change_prompt()
     else:
