@@ -30,23 +30,30 @@ class character:
 
     def healfriendly(self):
         self.hp = self.hp + random.randint(20, 30)
-        if self.hp <= 0:
-            print("You cannot heal a dead player!")
-            gameplay()
+        if Federation_Medic.hp <= 0:
+            print("Your Medic is dead! you cannot heal!")
         else:
-            if self.hp > self.maxhp:
-                self.hp = self.maxhp
-            print(f"{self.name} has been healed to {self.hp} hp.")
-            time.sleep(0.6)
+            if self.hp <= 0:
+                print("You cannot heal a dead player!")
+                gameplay()
+            else:
+                if self.hp > self.maxhp:
+                    self.hp = self.maxhp
+                print(f"{self.name} has been healed to {self.hp} hp.")
+                time.sleep(0.6)
     def healenemy(self):
-        self.hp = self.hp + random.randint(10, 25)
-        if self.hp <= 0:
+        if MegaCorp_Medic.hp <= 0:
+            print("Enemy cannot heal with a dead player!")
             enemyatk()
         else:
-            if self.hp > self.maxhp:
-                self.hp = self.maxhp
-            print(f"{self.name} has been healed to {self.hp} hp.")
-            time.sleep(0.6)
+            self.hp = self.hp + random.randint(10, 25)
+            if self.hp <= 0:
+                enemyatk()
+            else:
+                if self.hp > self.maxhp:
+                    self.hp = self.maxhp
+                print(f"{self.name} has been healed to {self.hp} hp.")
+                time.sleep(0.6)
 
 
     def fsAtk(self):
