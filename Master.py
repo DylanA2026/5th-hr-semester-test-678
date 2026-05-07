@@ -454,6 +454,8 @@ def enemyatk():
 def start_game():
     while Federation_Medic.hp > 0 or Federation_literaltank.hp > 0 or Federation_Soldier.hp > 0:
         if MegaCorp_Soldier.hp > 0 or MegaCorp_Medic.hp > 0 or MegaCorp_literaltank.hp > 0:
+            print(f"Full list of Units:")
+            print(unit_list)
             character_selection()
             print("List of Character HP:")
             print(f"Federation Medic: {Federation_Medic.hp}")
@@ -510,7 +512,7 @@ MegaCorp_Soldier = character("Megacorp Soldier",100, random.randint(8,15), 100, 
 MegaCorp_Medic = character("Megacorp Medic",45, random.randint(2,5), 45, False)
 MegaCorp_literaltank = character("Megacorp Tank",175, random.randint(3,8),175, False)
 
-unit_list = [Federation_Soldier, Federation_Medic, Federation_literaltank, MegaCorp_Soldier, MegaCorp_Medic, MegaCorp_literaltank]
+unit_list = [Federation_Soldier.name, Federation_Medic.name, Federation_literaltank.name, MegaCorp_Soldier.name, MegaCorp_Medic.name, MegaCorp_literaltank.name]
 
 
 char_select = 0
