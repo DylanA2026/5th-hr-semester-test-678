@@ -1,6 +1,6 @@
 import random
 import time
-
+#WARNING: THE BOSSFIGHT IS NOT LIKELY TO EVER BE FINISHED.
 bosslevel = False
 level = True
 class character:
