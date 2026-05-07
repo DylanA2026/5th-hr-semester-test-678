@@ -278,6 +278,16 @@ def character_selection():
             character_selection()
         print("You have selected the Space Tank")
         char_change_prompt()
+
+#Easter eggs!
+    elif char_select == 64:
+        print("No boss fight in this version, sadly.")
+        character_selection()
+
+    elif char_select == 66:
+        print("Route 66!")
+        character_selection()
+#Normal code
     else:
         print("Not a valid option")
         character_selection()
